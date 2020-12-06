@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--Adding the Thymeleaf namespace-->
+<!--Adding the tag 'th' to reference this namespace-->
+<!--This will give Thymeleaf extension to this xml doc-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>SpringFramework Practice</title>
-</head>`
+</head>
 <body>
 
 <h1>Book List</h1>
@@ -14,10 +17,12 @@
         <th>Title</th>
         <th>Publisher</th>
     </tr>
-    <tr>
-        <td>123</td>
-        <td>Spring in Action</td>
-        <td>Wrox</td>
+<!--    Thymeleaf will iterate over 'books' arriving from the view-->
+<!--    Thymeleaf will render this element for each book from books-->
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}">123</td>
+        <td th:text="${book.title}">Spring in Action</td>
+        <td th:text="${book.publisher.name}">Wrox</td>
     </tr>
 </table>
 

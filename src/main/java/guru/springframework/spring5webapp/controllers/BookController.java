@@ -27,7 +27,9 @@ public class BookController {
         // Adding here an attribute to it (List of books)
         model.addAttribute("books", bookRepository.findAll());
 
-        // returning a view named 'books'
-        return "books";
+        // Return the 'list' template (html file) inside the directory 'books'
+        // that located inside 'resources' directory of the project.
+        // (The default lookup location is the 'templates' directory in 'resources')
+        return "books/list";
     }
 }
